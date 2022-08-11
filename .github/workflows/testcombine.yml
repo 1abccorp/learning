@@ -1,0 +1,19 @@
+name: Notification
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+jobs:
+  PRAuthor:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Author
+      run: |
+        echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."              
+  CommitMessage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Commit message
+      run: |
+        echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."
