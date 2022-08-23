@@ -10,7 +10,7 @@ class HelloWorld(Resource):
 
 
 
-api.add_resource(HellosdWor1dfdflwed, '/')
+api.add_resource(Hellosss3333, '/')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
