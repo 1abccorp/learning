@@ -12,7 +12,7 @@ num_folders=0
 # Loop over each folder
 for folder in $folders; do
   # Check if the folder is in the exclusion list
-  if [[ $exclude != *" $folder "* ]]; then
+  if [[ ! " ${exclude[@]} " =~ " ${folder} " ]]; then
     # Change into the folder
     cd "$folder"
 
