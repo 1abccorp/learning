@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "$git diff-tree --no-commit-id --name-only -r HEAD"
+x=$(git diff-tree --no-commit-id --name-only -r HEAD)
+echo "$x"
 
 #git diff-tree --no-commit-id --name-only -r HEAD | xargs dirname | sort | uniq
 
