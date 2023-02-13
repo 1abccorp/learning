@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Folders to exclude
-exclude=(.git .github)
+exclude=(.git)
 
 # Get the list of folders in the root of the repository
 folders=$(find . -maxdepth 1 -type d | grep -v "^\.$")
