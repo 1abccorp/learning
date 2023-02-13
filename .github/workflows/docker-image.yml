@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: CD INTO FOLDER WITH COMMIT
-      run: sh ./github/scripts/test.sh
+      run: sh ./.github/scripts/test.sh
