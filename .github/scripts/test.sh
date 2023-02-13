@@ -10,4 +10,4 @@ echo "$folder_name"
 # Change to the folder where the change was made
 cd "$folder_name"
 
-echo "$pwd"
+pwd
