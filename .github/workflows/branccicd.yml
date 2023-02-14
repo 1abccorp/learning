@@ -3,7 +3,7 @@ name: Deploy Databricks Jobs (Folder-Specific)
 on:
   push:
     branches:
-      - '*/<folder_name>/*'
+      - '*/*/*'
 
 env:
   TF_IN_AUTOMATION: "true"
