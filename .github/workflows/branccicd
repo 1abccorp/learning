@@ -1,0 +1,38 @@
+name: Deploy Databricks Jobs (Folder-Specific)
+
+on:
+  push:
+    branches:
+      - '*/<folder_name>/*'
+
+env:
+  TF_IN_AUTOMATION: "true"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Extract Folder Name
+      id: extract_folder
+      run: |
+        folder_name=$(echo ${GITHUB_REF#*/})
+        folder_name=${folder_name%/*}
+        echo "::set-output name=folder_name::$folder_name"
+
+    - name: Change into Folder
+      run: |
+        cd ${{ steps.extract_folder.outputs.folder_name }}
+
+    - name: Run Terraform Init and Validate
+      run: |
+        #terraform init
+        #terraform validate
+        ls
+
+    - name: Run Terraform Plan
+      run: |
+        #terraform plan
+        ls
