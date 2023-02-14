@@ -20,6 +20,7 @@ jobs:
       run: |
         folder_name=$(echo ${GITHUB_REF#*/})
         folder_name=${folder_name%/*}
+        echo ${GITHUB_REF#refs/heads/}
         echo "::set-output name=folder_name::$folder_name"
 
     - name: Change into Folder
