@@ -1,0 +1,30 @@
+  - name: Notify Slack on failure
+    if: failure()
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    run: |
+      curl -X POST -H 'Content-type: application/json' --data '{
+        "text": "GitHub Action failed for ${{ github.repository }} (${{ github.sha }}) - ${{ github.workflow }}",
+        "attachments": [
+          {
+            "color": "#FF0000",
+            "fields": [
+              {
+                "title": "Repository",
+                "value": "<${{ github.repository_url }}|${{ github.repository }}>",
+                "short": true
+              },
+              {
+                "title": "Commit",
+                "value": "<${{ github.sha }}|${{ github.sha }}>",
+                "short": true
+              },
+              {
+                "title": "Workflow",
+                "value": "<${{ github.workflow }}|${{ github.workflow }}>",
+                "short": true
+              }
+            ]
+          }
+        ]
+      }' $SLACK_WEBHOOK_URL
